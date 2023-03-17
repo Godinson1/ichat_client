@@ -13,7 +13,7 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 const production = process.env.NODE_ENV === "production";
 
 const uploadLink = createUploadLink({
-  uri: production ? "https://ichat-api.onrender.com/graphql/" : "http://localhost:4000/graphql",
+  uri: production ? "https://ichat-api.onrender.com/graphql/" : "https://ichat-api.onrender.com/graphql/",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -27,7 +27,7 @@ const link = ApolloLink.from(authTerminatingLink);
 const host = "ichat-api.onrender.com";
 
 const wsLink = new WebSocketLink({
-  uri: production ? `ws://${host}/graphql/` : "ws://localhost:4000/graphql/",
+  uri: production ? `ws://${host}/graphql/` : "ws://ichat-api.onrender.com/graphql/",
   options: {
     reconnect: true,
     timeout: 20000,

@@ -27,7 +27,7 @@ const link = ApolloLink.from(authTerminatingLink);
 const host = "ichat-api.onrender.com";
 
 const wsLink = new WebSocketLink({
-  uri: production ? `ws://${host}/graphql/` : "ws://ichat-api.onrender.com/graphql/",
+  uri: production ? `wss://${host}/graphql/` : "ws://ichat-api.onrender.com/graphql/",
   options: {
     reconnect: true,
     timeout: 20000,
